@@ -41,7 +41,7 @@ def main():
                 ciphertext = VigenèreCipher.encrypt(args.characters)
             else:
                 ciphertext = OneTimePad.encrypt(args.characters)
-            if args.output is not None:
+            if args.output:
                 with open("ciphertext.txt", 'w') as file:
                     file.write(ciphertext)
                 print("Ciphertext has been saved to ciphertext.txt")
