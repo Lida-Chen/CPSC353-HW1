@@ -17,15 +17,15 @@ numDict = {"0": "A", "1": "B", "2": "C", "3": "D", "4": "E", "5": "F", "6": "G",
 # create and print the key
 def CreateKey(message,keylen = 4):
     letters = string.ascii_uppercase + ' '
-    #Create the key to the length of 4
-    key = ''.join(random.choice(letters) for i in range(keylen))
-    #Match the key to the length of the message by using it over and over again.
+    # Create the key to the length of 4
+    key1 = ''.join(random.choice(letters) for i in range(keylen))
+    # Match the key to the length of the message by using it over and over again.
     # If the key is shorter than the message, it will repeat.
     if len(message) > keylen:
-        key = ''.join(key[i % keylen] for i in range(len(message)))
-    elif len(message) < keylen:
-        key = key[:len(message)]
-    print(key)
+        key = ''.join(key1[i % keylen] for i in range(len(message)))
+    elif len(message) <= keylen:
+        key = key1[:len(message)]
+    print(key1)
     return key
 
 
@@ -40,7 +40,7 @@ def encrypt(message):
     for i in range(len(message)):
         messageToNum = letterDict[message[i]]
         keyToNum = letterDict[key1[i]]
-        encryptedToNum = (str((int(messageToNum) + int(keyToNum)) % 27))
+        encryptedToNum = (int(messageToNum) + int(keyToNum)) % 27
         #pass back into the reverse dictionary to get the letters back
         encrypted.append(numDict[str(encryptedToNum)])
     return ''.join(encrypted)
@@ -49,10 +49,11 @@ def encrypt(message):
 # check if the key is legal
 def decrypt(message, key):
     decrypted = []
-    key1 = CreateKey(message, len(key))
+
     for i in range(len(message)):
         messageToNum = letterDict[message[i]]
-        keyToNum = letterDict[key1[i]]
-        decryptedToNum = (str((int(messageToNum) - int(keyToNum)) % 27))
+        keyToNum = letterDict[key[i]]
+        decryptedToNum = (int(messageToNum) - int(keyToNum)) % 27
         decrypted.append(numDict[str(decryptedToNum)])
+    print(decrypted)
     return ''.join(decrypted)
