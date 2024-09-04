@@ -6,6 +6,8 @@
 
 import random
 import string
+from dbm import error
+
 #Dictionary to convert letters to numbers
 letterDict = {"A":"0", "B":"1", "C":"2", "D":"3", "E":"4", "F":"5", "G":"6","H":"7", "I":"8", "J":"9","K":"10",
               "L":"11", "M":"12", "N":"13", "O":"14", "P":"15", "Q":"16", "R":"17", "S":"18", "T":"19", "U":"20",
@@ -23,8 +25,8 @@ def CreateKey(message,keylen):
     # If the key is shorter than the message, it will repeat.
     if len(message) > keylen:
         keymask = ''.join(key1[i % keylen] for i in range(len(message)))
-    elif len(message) <= keylen:
-        keymask = key1[:len(message)]
+    else:
+        print("Error: The message length should be longer than the key length.")
     print(f"Key for Vignere Cipher: {key1}") #print actual key, return keymask.
     return keymask
 
