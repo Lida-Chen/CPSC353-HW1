@@ -25,6 +25,7 @@ def main():
 
     parser.add_argument("--key", type = str, help = "The key to use for decryption")# an optional argument for decrypting
     parser.add_argument("--output", action="store_true", help = "Output ciphertexts to a file")
+    parser.add_argument("--length", type = int, action="store_true", help = "The key to use for decryption")
     
     args = parser.parse_args()
 
@@ -38,7 +39,10 @@ def main():
             if args.type == "Caesar":
                 ciphertext = CaesarCipher.encrypt(args.characters)
             elif args.type == "Vigenere":
-                ciphertext = VigenèreCipher.encrypt(args.characters)
+                if args.length is None:
+                    print("A length is required for VigenèreCipher")
+                    quit()
+                ciphertext = VigenèreCipher.encrypt(args.characters, args.length)
             else:
                 ciphertext = OneTimePad.encrypt(args.characters)
             if args.output:

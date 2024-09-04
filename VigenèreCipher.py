@@ -30,7 +30,7 @@ def CreateKey(message,keylen = 4):
 
 
 # print the encrypted strings and how you get it
-def encrypt(message):
+def encrypt(message, length):
     encrypted = []
     #Pass the key to the Dictionary to convert letters to numbers.
     #Pass the message to the dictionary to convert letters to numbers.
