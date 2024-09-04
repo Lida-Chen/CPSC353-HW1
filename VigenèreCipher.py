@@ -17,6 +17,13 @@ numDict = {"0": "A", "1": "B", "2": "C", "3": "D", "4": "E", "5": "F", "6": "G",
            "10": "K", "11": "L", "12": "M","13": "N", "14": "O", "15": "P", "16": "Q", "17": "R", "18": "S",
             "19": "T", "20": "U", "21": "V", "22": "W", "23": "X", "24": "Y","25": "Z", "26": " "}
 # create and print the key
+"""
+Create a key for the Vigenere Cipher.
+
+:param message: The message for which the key is created.
+:param keylen: The length of the key to be generated.
+:return: The key for the Vigenere Cipher.
+"""
 def CreateKey(message,keylen):
     letters = string.ascii_uppercase + ' '
     # Create the key to the length of 4
@@ -32,6 +39,13 @@ def CreateKey(message,keylen):
 
 
 # print the encrypted strings and how you get it
+"""
+Encrypts a message using the Vigenere Cipher algorithm.
+
+:param message: The message to be encrypted.
+:param length: The length of the key to be generated for encryption.
+:return: The encrypted message.
+"""
 def encrypt(message, length):
     encrypted = []
     #Pass the key to the Dictionary to convert letters to numbers.
@@ -45,11 +59,18 @@ def encrypt(message, length):
         encryptedToNum = (int(messageToNum) + int(keyToNum)) % 27
         #pass back into the reverse dictionary to get the letters back
         encrypted.append(numDict[str(encryptedToNum)])
-        print(f"{int(messageToNum)} + {int(keyToNum)} % 27 = {encryptedToNum}")
+        print(f"{int(messageToNum)} + {int(keyToNum)} % 27 = {encryptedToNum} = {numDict[str(encryptedToNum)]}")
     return ''.join(encrypted)
 
 # print the decrypted strings and how you get it
 # check if the key is legal
+"""
+Decrypts a message using the provided key and the Vigenere Cipher.
+
+:param message: The message to be decrypted.
+:param key: The key to decrypt the message.
+:return: The decrypted message.
+"""
 def decrypt(message, key):
     decrypted = []
     keylen  = len(key)
@@ -60,6 +81,6 @@ def decrypt(message, key):
         keyToNum = letterDict[key1[i]]
         decryptedToNum = (int(messageToNum) - int(keyToNum)) % 27
         decrypted.append(numDict[str(decryptedToNum)])
-        print(f"{int(messageToNum)} - {int(keyToNum)} % 27 = {decryptedToNum}")
+        print(f"{int(messageToNum)} - {int(keyToNum)} % 27 = {decryptedToNum} = {numDict[str(decryptedToNum)]}")
     print(decrypted)
     return ''.join(decrypted)
