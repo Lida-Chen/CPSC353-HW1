@@ -6,7 +6,7 @@ import string
 def CreateKey():
     # for CaesarCipher, key should be A-' ', they represent to 0-26
     key = random.randint(0,26)
-    print(f"this is the key for Caesar Cipher : {key}")
+    print(f"this is the key for Caesar Cipher : {chr(ord('A') + key)}")
     return key
 
 # print the encrypted strings and how you get it
