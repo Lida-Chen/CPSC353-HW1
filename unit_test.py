@@ -18,16 +18,25 @@ def test_CaesarEncrept():
         assert(char.isupper() or char == ' ')
 
 def test_CaesarDecrept():
-    # TODO
-    pass
+    letters = "BCDAE"
+    key = 'B'  # Example key for testing
+    decrypted_text = CaesarCipher.decrypt(letters, key)
+    assert len(decrypted_text) == len(letters)
+    assert decrypted_text == "ABC D"
 
 def test_VigenèreEncrept():
-    # TODO
-    pass
+    letters = "HELLO WORLD"
+    encrypted_text = VigenèreCipher.encrypt(letters, 4)
+    assert len(encrypted_text) == len(letters)
+    for char in encrypted_text:
+        assert(char.isupper() or char == ' ')
 
 def test_VigenèreDecrept():
-    # TODO
-    pass
+    letters = "ABC"
+    key = "ABC"
+    decrypted_text = VigenèreCipher.decrypt(letters, key)
+    assert len(decrypted_text) == len(letters)
+    assert decrypted_text == "AAA"
 
 def test_OneTimeEncrept():
     letters = "HELLO WORLD"
