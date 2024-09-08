@@ -30,7 +30,7 @@ def CreateKey(message,keylen):
     key1 = ''.join(random.choice(letters) for i in range(keylen))
     # Match the key to the length of the message by using it over and over again.
     # If the key is shorter than the message, it will repeat.
-    if len(message) > keylen:
+    if len(message) >= keylen:
         keymask = ''.join(key1[i % keylen] for i in range(len(message)))
     else:
         print("Error: The message length should be longer than the key length.")
