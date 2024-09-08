@@ -11,7 +11,11 @@ def test_FormatCheck():
 
 def test_CaesarEncrept():
     # TODO
-    pass
+    letters = "ABC D"
+    encrypt_test = CaesarCipher.encrypt(letters)
+    assert len(encrypt_test) == len(letters)
+    for char in encrypt_test:
+        assert(char.isupper() or char == ' ')
 
 def test_CaesarDecrept():
     # TODO
