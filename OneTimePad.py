@@ -5,7 +5,7 @@ import string
 # create and print the key
 def CreateKey(length):
     characters = string.ascii_uppercase + ' '
-    key = ''.join(random.choices(characters, k = length))
+    key = random.choices(characters, k = length)
     print(f"Key for one time pad: {key}")
     return key
 
