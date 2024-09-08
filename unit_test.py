@@ -9,8 +9,23 @@ def test_FormatCheck():
     assert main_program.FormatCheck("letters ") == True
     assert main_program.FormatCheck("letters123") == False
 
+def test_createkey_Caesar():
+    key = CaesarCipher.CreateKey()
+    assert(key >= 0 and key < 27)
+
+def test_createkey_Vigenère():
+    message = "ABC"
+    keylen = 1
+    key = VigenèreCipher.CreateKey(message,keylen)
+    assert(len(key) == keylen*len(message))
+
+def test_createkey_OneTime():
+    message = "CAT"
+    key = OneTimePad.CreateKey(len(message))
+    assert(len(key) == len(message))
+
+
 def test_CaesarEncrept():
-    # TODO
     letters = "ABC D"
     encrypt_test = CaesarCipher.encrypt(letters)
     assert len(encrypt_test) == len(letters)
@@ -19,7 +34,7 @@ def test_CaesarEncrept():
 
 def test_CaesarDecrept():
     letters = "BCDAE"
-    key = 'B'  # Example key for testing
+    key = 'B'
     decrypted_text = CaesarCipher.decrypt(letters, key)
     assert len(decrypted_text) == len(letters)
     assert decrypted_text == "ABC D"
