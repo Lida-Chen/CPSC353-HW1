@@ -18,13 +18,13 @@ def FormatCheck(letters : str):
 # python3 main_program.py encrypt Caesar letters --output
 # python3 main_program.py decrypt Caesar letters --key e
 def main():
-    parser = argparse.ArgumentParser(description="Encrypt or decrypt a string using a specified cipher.")
+    parser = argparse.ArgumentParser(description = "Encrypt or decrypt a string using a specified cipher.")
     parser.add_argument("option", type = str, choices = ["encrypt", "decrypt"], help = "Encrypt or decrypt")
     parser.add_argument("type", type = str, choices = ["Caesar", "Vigenere", "OneTimePad"], help = "Cipher type. Caesar, Vigenere, or OneTimePad")
     parser.add_argument("characters", type = str, help = "Characters need to be encrypted or decrypted")
 
     parser.add_argument("--key", type = str, help = "The key to use for decryption")# an optional argument for decrypting
-    parser.add_argument("--output", action="store_true", help = "Output ciphertexts to a file")
+    parser.add_argument("--output", action = "store_true", help = "Output ciphertexts to a file")
     parser.add_argument("--length", type = int, help = "The key to use for decryption")
     
     args = parser.parse_args()
