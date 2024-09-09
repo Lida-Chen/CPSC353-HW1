@@ -20,9 +20,9 @@ numDict = {"0": "A", "1": "B", "2": "C", "3": "D", "4": "E", "5": "F", "6": "G",
 """
 Create a key for the Vigenere Cipher.
 
-:param message: The message for which the key is created.
-:param keylen: The length of the key to be generated.
-:return: The key for the Vigenere Cipher.
+message: The message for which the key is created.
+keylen: The length of the key to be generated.
+return: The key for the Vigenere Cipher.
 """
 def CreateKey(message,keylen):
     letters = string.ascii_uppercase + ' '
@@ -42,9 +42,9 @@ def CreateKey(message,keylen):
 """
 Encrypts a message using the Vigenere Cipher algorithm.
 
-:param message: The message to be encrypted.
-:param length: The length of the key to be generated for encryption.
-:return: The encrypted message.
+message: The message to be encrypted.
+length: The length of the key to be generated for encryption.
+return: The encrypted message.
 """
 def encrypt(message, length):
     encrypted = []
@@ -67,9 +67,9 @@ def encrypt(message, length):
 """
 Decrypts a message using the provided key and the Vigenere Cipher.
 
-:param message: The message to be decrypted.
-:param key: The key to decrypt the message.
-:return: The decrypted message.
+message: The message to be decrypted.
+key: The key to decrypt the message.
+return: The decrypted message.
 """
 def decrypt(message, key):
     decrypted = []
