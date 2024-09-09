@@ -1,4 +1,4 @@
-# Author: Lida Chen
+# Author: Danni Du, Kyle Connall, Lida Chen
 
 import re
 import argparse
