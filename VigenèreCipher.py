@@ -1,7 +1,4 @@
 # Author: Kyle Connall
-# Date: 9/1/2024
-# School: Gonzaga University
-# Class: CPSC 353
 # Description: Vigenere Cipher
 
 import random
